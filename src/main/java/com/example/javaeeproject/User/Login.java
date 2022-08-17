@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
         if(username.isEmpty() || password.isEmpty() )
         {
             RequestDispatcher req =
-                    request.getRequestDispatcher("Register3.jsp");
+                    request.getRequestDispatcher("Login.jsp");
             req.include(request, response);
         }
         else

@@ -7,11 +7,11 @@
     <title>Logged In</title>
 </head>
 <body>
-<table style="with: 50%">
+<table style="width: 50%">
     <tr><td>
         <a>Welcome   <% request.getParameter("username"); %> User!!!! You have logged in.</a></td></tr>
     <tr></tr><tr><td></td><td></td><td><a
-        href="Register3.jsp"><b>Logout</b></a></td></tr>
+        href="Login.jsp"><b>Logout</b></a></td></tr>
 </table>
 </body>
 </html>
