@@ -24,7 +24,7 @@
             <td><input type="password" name="password" /></td>
         </tr>
     </table>
-    <input type="submit" value="Login" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="Login" />
 
 </form>
 <input type="button" value="Sign Up" onclick="openPage('SignUp.jsp')" /> </body>
