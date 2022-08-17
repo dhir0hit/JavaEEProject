@@ -1,5 +1,9 @@
 package com.example.javaeeproject.Models;
 
+import com.mysql.cj.x.protobuf.MysqlxExpr;
+
+import java.util.ArrayList;
+
 /**
  * User Model
  * */

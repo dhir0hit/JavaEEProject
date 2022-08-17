@@ -9,9 +9,14 @@
     <title> Registration Form</title>
 </head>
 <body>
+
 <h1>Account Registration Form</h1>
 <form action="Register" method="post">
     <table style="with: 50%">
+        <% Object foo = request.getAttribute("error"); %>
+        <% if (foo != null) { %>
+        <p><%= foo %></p>
+        <% } %>
         <tr>
             <td>UserName</td>
             <td><input type="text" name="username" /></td>

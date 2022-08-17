@@ -260,12 +260,12 @@
             <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 
                 <div class="navbar-nav ml-auto">
-                    <a href="#" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
+                    <a href="Index.jsp" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-users"></i><span>About</span></a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-envelope"></i><span>Contact</span></a>
 
                     <div class="nav-item dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="Images/bg.jpg" class="avatar" alt="Avatar"> Login <b class="caret"></b></a>
+                        <a href="Login" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="Images/bg.jpg" class="avatar" alt="Avatar"> Login <b class="caret"></b></a>
                         <!--Will Show Username Name Here When Login Otherwise Login Button-->
                         <div class="dropdown-menu">
                             <!--Will Only Show This option  when the person login-->
@@ -284,10 +284,7 @@
     <div class="triangle main_body">
         <div class="center">
             <h3> Start The Quiz</h3>
-            <button class="btn-1">
-                Submit
-
-            </button>
+            <a href="Quiz" class="btn-1">Start</a>
         </div>
     </div>
 

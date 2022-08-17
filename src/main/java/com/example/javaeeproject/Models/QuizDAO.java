@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class QuizDAO {
+    static ArrayList<Quiz> quizlist = new ArrayList<>();
     public static ArrayList<Quiz> getQuizlist (){
-        ArrayList<Quiz> quizlist = new ArrayList<>();
 
         Connection conn = null;
         String query= null;
@@ -54,5 +54,23 @@ public class QuizDAO {
             }
         }
         return quizlist;
+    }
+
+    public static Quiz getRandomQuiz(String difficulty) {
+        getQuizlist();
+        Quiz quiz;
+        int randomIndex = (int) (Math.random() * quizlist.size());
+
+        do{
+            quiz = quizlist.get(randomIndex);
+        } while (quiz.Level.toLowerCase().equals(difficulty));
+
+        return quizlist.get(randomIndex);
+    }
+    public static Quiz getRandomQuiz() {
+        getQuizlist();
+        int randomIndex = (int) (Math.random() * quizlist.size());
+
+        return quizlist.get(randomIndex);
     }
 }

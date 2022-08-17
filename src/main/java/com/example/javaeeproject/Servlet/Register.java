@@ -33,15 +33,16 @@ public class Register extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+        Object user = new User();
+        request.setAttribute("User", user);
+        request.getRequestDispatcher("/SignUp.jsp").forward(request,response);
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+        boolean isIdenticalUsername = false;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String contact = request.getParameter("age");
@@ -54,14 +55,15 @@ public class Register extends HttpServlet {
         {
             for (User user: UserDAO.getUserList()) {
                 if (username.equals(user.getUsername())){
-                    PrintWriter out = response.getWriter();
-                    out.print("User name already taken");
-
-                } else {
-                    RequestDispatcher req = request.getRequestDispatcher("Login.jsp");
-                    req.forward(request, response);
-
+                    request.setAttribute("error", "username already taken");
+                    request.getRequestDispatcher("/SignUp.jsp").forward(request, response);
+                    isIdenticalUsername = true;
+                    break;
                 }
+            }
+
+            if (isIdenticalUsername) {
+                request.getRequestDispatcher("/SignUp.jsp").forward(request, response);
             }
         }
     }

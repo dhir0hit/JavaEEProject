@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -36,8 +37,9 @@ public class Login extends HttpServlet {
      */
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+        Object user = new User();
+        request.setAttribute("User", user);
+        request.getRequestDispatcher("/Login.jsp").forward(request,response);
     }
 
 /**
@@ -45,21 +47,28 @@ public class Login extends HttpServlet {
      */
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        boolean accountFound = false;
         if(username.isEmpty() || password.isEmpty() )
         {
-            PrintWriter out = response.getWriter();
-            out.print("Error");
+            request.setAttribute("error", "username and password can not be empty");
+            request.getRequestDispatcher("/Login.jsp").forward(request,response);
         }
         else {
             for (User user: UserDAO.getUserList()) {
-                if (username.equals(user.getUsername()) || password.equals(user.getPassword())){
-                    RequestDispatcher req = request.getRequestDispatcher("quiz.jsp");
-                    req.include(request, response);
-
+                if (username.equals(user.getUsername()) || password.equals(user.getPassword())) {
+                    request.getRequestDispatcher("/Login.jsp").forward(request, response);
+                    accountFound = true;
+                    break;
                 }
+            }
+
+            if (!accountFound) {
+                request.setAttribute("error", "username or password incorrect");
+                request.getRequestDispatcher("/Login.jsp").forward(request,response);
+
             }
         }
     }
