@@ -64,4 +64,8 @@ public class User {
         scorelist.add(score);
         Scores =  scorelist.toString();
     }
+
+    public void setScores(String scores) {
+        Scores = scores;
+    }
 }

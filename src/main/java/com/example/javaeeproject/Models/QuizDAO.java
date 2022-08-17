@@ -1,12 +1,11 @@
 package com.example.javaeeproject.Models;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UserDAO {
-    public static ArrayList<User> getUserList (){
-        ArrayList<User> userList = new ArrayList<>();
+public class QuizDAO {
+    public static ArrayList<Quiz> getQuizlist (){
+        ArrayList<Quiz> quizlist = new ArrayList<>();
 
         Connection conn = null;
         String query= null;
@@ -23,20 +22,23 @@ public class UserDAO {
 
             Statement statement = conn.createStatement();
 
-            query = "SELECT * from User";
+            query = "SELECT * from Quiz";
+
             rs = statement.executeQuery(query);
 
             while(rs.next()) {
                 /*
-                * Getting data from Database
+                * Getting data from database
                 * */
-                User user = new User();
-                user.setId(rs.getInt("Id"));
-                user.setUsername(rs.getString("Username"));
-                user.setPassword(rs.getString("Password"));
-                user.setScores(rs.getString("Scores"));
+                Quiz quiz = new Quiz();
 
-                userList.add(user);
+                quiz.setId(rs.getInt("Id"));
+                quiz.setQuestion(rs.getString("Question"));
+                quiz.setAnswer(rs.getString("Answer"));
+                quiz.setLevel(rs.getString("Level"));
+                quiz.setOptions(rs.getString("Options"));
+
+                quizlist.add(quiz);
             }
 
         } catch (SQLException e) {
@@ -51,7 +53,6 @@ public class UserDAO {
                 throw new RuntimeException(e);
             }
         }
-        return userList;
+        return quizlist;
     }
-
 }
