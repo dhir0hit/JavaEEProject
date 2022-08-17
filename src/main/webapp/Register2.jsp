@@ -8,6 +8,6 @@
 </head>
 <body>
 <a><b>Welcome User!!!!</b></a>
-<a href="Register3.jsp">Goto Login Page</a>
+<a href="Login.jsp">Goto Login Page</a>
 </body>
 </html>
