@@ -1,5 +1,8 @@
 package com.example.javaeeproject.Servlet;
 
+import com.example.javaeeproject.Models.User;
+import com.example.javaeeproject.Models.UserDAO;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -49,14 +52,17 @@ public class Register extends HttpServlet {
             out.print("Error");
         } else
         {
-            /*TODO: Add else-if to check if user is already taken*/
-            /* TODO: Display user account*/
-            /*RequestDispatcher req =
-                    request.getRequestDispatcher("SignUp.jsp");
-            req.include(request, response);*/
-            /*RequestDispatcher req =
-                    request.getRequestDispatcher("Register2.jsp");
-            req.forward(request, response);*/
+            for (User user: UserDAO.getUserList()) {
+                if (username.equals(user.getUsername())){
+                    PrintWriter out = response.getWriter();
+                    out.print("User name already taken");
+
+                } else {
+                    RequestDispatcher req = request.getRequestDispatcher("Login.jsp");
+                    req.forward(request, response);
+
+                }
+            }
         }
     }
 

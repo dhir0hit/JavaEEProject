@@ -1,6 +1,11 @@
-package com.example.javaeeproject.User;
+package com.example.javaeeproject.Servlet;
+
+
+import com.example.javaeeproject.Models.User;
+import com.example.javaeeproject.Models.UserDAO;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Login extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-/**
+    /**
      * @see HttpServlet#HttpServlet()
      */
 
@@ -45,15 +50,17 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         if(username.isEmpty() || password.isEmpty() )
         {
-            RequestDispatcher req =
-                    request.getRequestDispatcher("Login.jsp");
-            req.include(request, response);
+            PrintWriter out = response.getWriter();
+            out.print("Error");
         }
-        else
-        {
-            RequestDispatcher req =
-                    request.getRequestDispatcher("SignUp.jsp");
-            req.forward(request, response);
+        else {
+            for (User user: UserDAO.getUserList()) {
+                if (username.equals(user.getUsername()) || password.equals(user.getPassword())){
+                    RequestDispatcher req = request.getRequestDispatcher("quiz.jsp");
+                    req.include(request, response);
+
+                }
+            }
         }
     }
 }
