@@ -9,17 +9,9 @@
     <title> Registration Form</title>
 </head>
 <body>
-<h1>Lambton Account Registration Form</h1>
+<h1>Account Registration Form</h1>
 <form action="Register" method="post">
     <table style="with: 50%">
-        <tr>
-            <td>First Name</td>
-            <td><input type="text" name="first_name" /></td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td><input type="text" name="last_name" /></td>
-        </tr>
         <tr>
             <td>UserName</td>
             <td><input type="text" name="username" /></td>
@@ -29,13 +21,10 @@
             <td><input type="password" name="password" /></td>
         </tr>
         <tr>
-            <td>Address</td>
-            <td><input type="text" name="address" /></td>
+            <td>Age</td>
+            <td><input type="text" name="age" /></td>
         </tr>
-        <tr>
-            <td>Contact No</td>
-            <td><input type="text" name="contact" /></td>
-        </tr></table>
+        </table>
     <input type="submit" value="Sign up" /></form>
 </body>
 </html>

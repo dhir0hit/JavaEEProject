@@ -37,24 +37,26 @@ public class Register extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String first_name = request.getParameter("first_name");
-        String last_name = request.getParameter("last_name");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String contact = request.getParameter("contact");
+        String contact = request.getParameter("age");
 
-        if(first_name.isEmpty() || last_name.isEmpty() || username.isEmpty() || password.isEmpty() || contact.isEmpty())
+        if(username.isEmpty() || password.isEmpty() || contact.isEmpty()) {
+
+            PrintWriter out = response.getWriter();
+            out.print("Error");
+        } else
         {
-            RequestDispatcher req =
+            /*TODO: Add else-if to check if user is already taken*/
+            /* TODO: Display user account*/
+            /*RequestDispatcher req =
                     request.getRequestDispatcher("SignUp.jsp");
-            req.include(request, response);
-        }
-        else
-        {
-            RequestDispatcher req =
+            req.include(request, response);*/
+            /*RequestDispatcher req =
                     request.getRequestDispatcher("Register2.jsp");
-            req.forward(request, response);
-        }  	}
+            req.forward(request, response);*/
+        }
+    }
 
 
 }

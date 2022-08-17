@@ -13,7 +13,7 @@
 </script>
 <body>
 <form action="Login" method="post">
-    <table style="with: 50%">
+    <table style="width: 50%">
 
         <tr>
             <td>UserName</td>
