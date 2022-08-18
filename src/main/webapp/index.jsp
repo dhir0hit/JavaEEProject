@@ -228,21 +228,11 @@
             box-shadow: none;
             padding: 0;
         }
-        .navbar .navbar-form {
-            border: none;
-            display: block;
-            margin: 10px 0;
-            padding: 0;
-        }
+
         .navbar .navbar-nav {
             margin: 8px 0;
         }
-        .navbar .navbar-toggle {
-            margin-right: 0;
-        }
-        .input-group {
-            width: 100%;
-        }
+
     }
 </style>
 
@@ -275,7 +265,7 @@
                             <a href="Login" class="dropdown-item"><i class="fa fa-user-o"></i>Login</a>
 
                             <div class="divider dropdown-divider"></div>
-                            <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+                            <a href="SignUp.jsp" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Sign-In</a>
                         </div>
                     </div>
                 </div>
