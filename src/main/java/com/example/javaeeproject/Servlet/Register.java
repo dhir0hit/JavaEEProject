@@ -45,9 +45,8 @@ public class Register extends HttpServlet {
         boolean isIdenticalUsername = false;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String contact = request.getParameter("age");
 
-        if(username.isEmpty() || password.isEmpty() || contact.isEmpty()) {
+        if(username.isEmpty() || password.isEmpty()) {
 
             PrintWriter out = response.getWriter();
             out.print("Error");
@@ -62,8 +61,9 @@ public class Register extends HttpServlet {
                 }
             }
 
-            if (isIdenticalUsername) {
-                request.getRequestDispatcher("/SignUp.jsp").forward(request, response);
+            if (!isIdenticalUsername) {
+                UserDAO.addUser(username, password);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
         }
     }

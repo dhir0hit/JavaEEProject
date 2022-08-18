@@ -14,8 +14,6 @@ public class UserDAO {
         ResultSet rs = null;
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-//            String dbURL = "jdbc:oracle:thin:SYSTEM/rohitdhir@localhost:1521:XE";
-//            String dbURL = "jdbc:oracle:thin:@localhost:1521:XE";
             String dbURL = "jdbc:mysql://localhost:3306/QuizDB";
 
             conn = DriverManager.getConnection(dbURL, "root", "R0h1tKum@rDh!r");
@@ -52,6 +50,42 @@ public class UserDAO {
             }
         }
         return userList;
+    }
+
+    public static void addUser(String Username, String Password) {
+        ArrayList<User> userList = new ArrayList<>();
+
+        Connection conn = null;
+        String query= null;
+        DatabaseMetaData st = null;
+        int rs;
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            String dbURL = "jdbc:mysql://localhost:3306/QuizDB";
+
+            conn = DriverManager.getConnection(dbURL, "root", "R0h1tKum@rDh!r");
+            System.out.println("............connected...............");
+
+            Statement statement = conn.createStatement();
+
+//            query = "Insert Into User (Username, Password) VALUES ("+ Username + ", " + Password + ")";
+            query = String.format("Insert Into User (Username, Password) Values ('%s', '%s')", Username, Password);
+            rs = statement.executeUpdate(query);
+
+            System.out.println("New User Created");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try{
+                if(conn!=null && !conn.isClosed()){
+                    conn.close();
+                    System.out.println("..........closed...........");
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }

@@ -260,16 +260,19 @@
             <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 
                 <div class="navbar-nav ml-auto">
-                    <a href="Index.jsp" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-users"></i><span>About</span></a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-envelope"></i><span>Contact</span></a>
+                    <a href="index.jsp" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
+                    <a href="about.jsp" class="nav-item nav-link"><i class="fa fa-users"></i><span>About</span></a>
+                    <a href="contact.jsp" class="nav-item nav-link"><i class="fa fa-envelope"></i><span>Contact</span></a>
 
                     <div class="nav-item dropdown">
                         <a href="Login" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="Images/bg.jpg" class="avatar" alt="Avatar"> Login <b class="caret"></b></a>
                         <!--Will Show Username Name Here When Login Otherwise Login Button-->
                         <div class="dropdown-menu">
                             <!--Will Only Show This option  when the person login-->
-                            <a href="GAME/user.html" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+                            <a href="" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+
+                            <div class="divider dropdown-divider"></div>
+                            <a href="Login" class="dropdown-item"><i class="fa fa-user-o"></i>Login</a>
 
                             <div class="divider dropdown-divider"></div>
                             <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
@@ -284,13 +287,11 @@
     <div class="triangle main_body">
         <div class="center">
             <h3> Start The Quiz</h3>
-            <a href="Quiz" class="btn-1">Start</a>
+            <br/>
+            <a href="Quiz" class="btn-1" style="text-decoration: none
+">Start</a>
         </div>
     </div>
-
 </div>
-
 </body>
-
-
 </html>

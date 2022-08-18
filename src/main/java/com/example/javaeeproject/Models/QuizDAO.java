@@ -13,8 +13,6 @@ public class QuizDAO {
         ResultSet rs = null;
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-//            String dbURL = "jdbc:oracle:thin:SYSTEM/rohitdhir@localhost:1521:XE";
-//            String dbURL = "jdbc:oracle:thin:@localhost:1521:XE";
             String dbURL = "jdbc:mysql://localhost:3306/QuizDB";
 
             conn = DriverManager.getConnection(dbURL, "root", "R0h1tKum@rDh!r");
